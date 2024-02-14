@@ -1,0 +1,110 @@
+[
+    {
+        "id": "f42218c1d30dee09",
+        "type": "subflow",
+        "name": "WS Sender - UserLED",
+        "info": "",
+        "category": "BlueRobotics-Navigator-WebAssistant",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "fe238dfedf05982c"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 340,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "fe238dfedf05982c",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "UserLed",
+                "type": "str",
+                "value": "Led1",
+                "ui": {
+                    "type": "select",
+                    "opts": {
+                        "opts": [
+                            {
+                                "l": {
+                                    "en-US": "Led1"
+                                },
+                                "v": "Led1"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Led2"
+                                },
+                                "v": "Led2"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Led3"
+                                },
+                                "v": "Led3"
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {
+            "module": "node-red-contrib-navigator-webassistant",
+            "type": "ws-sender-userled",
+            "version": "0.0.0",
+            "author": "raulvtrombin@gmail.com",
+            "desc": "navigator blocks",
+            "keywords": "robotics,stem,rov",
+            "license": "MIT"
+        },
+        "color": "#3FADB5",
+        "icon": "node-red/arrow-in.svg"
+    },
+    {
+        "id": "fe238dfedf05982c",
+        "type": "template",
+        "z": "f42218c1d30dee09",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "/output/userled/{   \"userled\": \"{{env.UserLed}}\",   \"value\": {{payload}} }",
+        "output": "str",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7da201360122e780",
+        "type": "subflow:f42218c1d30dee09",
+        "z": "38524843d73788ed",
+        "name": "",
+        "env": [
+            {
+                "name": "UserLed",
+                "value": null,
+                "type": "str"
+            }
+        ],
+        "x": 700,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    }
+]

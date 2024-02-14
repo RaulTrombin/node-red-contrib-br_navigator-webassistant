@@ -1,0 +1,72 @@
+[
+    {
+        "id": "598f246fa964724b",
+        "type": "subflow",
+        "name": "WS Sender - PWM Frequency",
+        "info": "",
+        "category": "BlueRobotics-Navigator-WebAssistant",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "520e7570257e77f4"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 380,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "520e7570257e77f4",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {
+            "module": "node-red-contrib-navigator-webassistant",
+            "type": "ws-sender-pwm-frequency",
+            "version": "0.0.0",
+            "author": "raulvtrombin@gmail.com",
+            "desc": "navigator blocks",
+            "keywords": "robotics,stem,rov",
+            "license": "MIT"
+        },
+        "color": "#3FADB5",
+        "icon": "node-red/arrow-in.svg"
+    },
+    {
+        "id": "520e7570257e77f4",
+        "type": "template",
+        "z": "598f246fa964724b",
+        "name": "PWM - Frequency",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "/output/pwm/frequency/{ \"frequency\": {{payload}} }",
+        "output": "str",
+        "x": 230,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2c55a6415acedf80",
+        "type": "subflow:598f246fa964724b",
+        "z": "38524843d73788ed",
+        "name": "",
+        "x": 670,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    }
+]

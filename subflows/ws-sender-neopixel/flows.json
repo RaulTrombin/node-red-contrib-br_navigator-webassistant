@@ -1,0 +1,72 @@
+[
+    {
+        "id": "b885439509c0b06b",
+        "type": "subflow",
+        "name": "WS Sender - NeoPixel",
+        "info": "",
+        "category": "BlueRobotics-Navigator-WebAssistant",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "fa1371b65bc6fcb5"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 340,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "fa1371b65bc6fcb5",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {
+            "module": "node-red-contrib-navigator-webassistant",
+            "type": "ws-sender-neopixel",
+            "version": "0.0.0",
+            "author": "raulvtrombin@gmail.com",
+            "desc": "navigator blocks",
+            "keywords": "robotics,stem,rov",
+            "license": "MIT"
+        },
+        "color": "#3FADB5",
+        "icon": "node-red/arrow-in.svg"
+    },
+    {
+        "id": "fa1371b65bc6fcb5",
+        "type": "template",
+        "z": "b885439509c0b06b",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "/output/neopixel/{ \"red\": {{payload.red}}, \"green\": {{payload.green}}, \"blue\": {{payload.blue}} }",
+        "output": "str",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "054f35ee47c76b3b",
+        "type": "subflow:b885439509c0b06b",
+        "z": "38524843d73788ed",
+        "name": "",
+        "x": 700,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    }
+]

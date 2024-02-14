@@ -1,0 +1,72 @@
+[
+    {
+        "id": "8d1c9d2a5d211642",
+        "type": "subflow",
+        "name": "WS Sender - PWM Enable",
+        "info": "",
+        "category": "BlueRobotics-Navigator-WebAssistant",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "c5b3af4a3f725026"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 340,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "c5b3af4a3f725026",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {
+            "module": "node-red-contrib-navigator-webassistant",
+            "type": "ws-sender-pwm-enable",
+            "version": "0.0.0",
+            "author": "raulvtrombin@gmail.com",
+            "desc": "navigator blocks",
+            "keywords": "robotics,stem,rov",
+            "license": "MIT"
+        },
+        "color": "#3FADB5",
+        "icon": "node-red/arrow-in.svg"
+    },
+    {
+        "id": "c5b3af4a3f725026",
+        "type": "template",
+        "z": "8d1c9d2a5d211642",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "/output/pwm/enable/{ \"enable\": {{payload}} }",
+        "output": "str",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3132425646a3fa0",
+        "type": "subflow:8d1c9d2a5d211642",
+        "z": "38524843d73788ed",
+        "name": "",
+        "x": 680,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    }
+]
