@@ -1,0 +1,185 @@
+[
+    {
+        "id": "8163cb557f9beb60",
+        "type": "subflow",
+        "name": "WS Sender - PWM Channel Value",
+        "info": "",
+        "category": "BlueRobotics-Navigator-WebAssistant",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "76ca99b844535cc0"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 340,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "76ca99b844535cc0",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "Channel",
+                "type": "str",
+                "value": "Ch16",
+                "ui": {
+                    "icon": "font-awesome/fa-list-ol",
+                    "label": {
+                        "en-US": "Channel"
+                    },
+                    "type": "select",
+                    "opts": {
+                        "opts": [
+                            {
+                                "l": {
+                                    "en-US": "Ch1"
+                                },
+                                "v": "Ch1"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch2"
+                                },
+                                "v": "Ch2"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch3"
+                                },
+                                "v": "Ch3"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch4"
+                                },
+                                "v": "Ch4"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch5"
+                                },
+                                "v": "Ch5"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch6"
+                                },
+                                "v": "Ch6"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch7"
+                                },
+                                "v": "Ch7"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch8"
+                                },
+                                "v": "Ch8"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch9"
+                                },
+                                "v": "Ch9"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch10"
+                                },
+                                "v": "Ch10"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch11"
+                                },
+                                "v": "Ch11"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch12"
+                                },
+                                "v": "Ch12"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch13"
+                                },
+                                "v": "Ch13"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch14"
+                                },
+                                "v": "Ch14"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch15"
+                                },
+                                "v": "Ch15"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Ch16"
+                                },
+                                "v": "Ch16"
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {
+            "module": "node-red-contrib-navigator-webassistant",
+            "type": "ws-sender-pwm-channel",
+            "version": "0.0.0",
+            "author": "raulvtrombin@gmail.com",
+            "desc": "navigator blocks",
+            "keywords": "robotics,stem,rov",
+            "license": "MIT"
+        },
+        "color": "#3FADB5",
+        "icon": "node-red/arrow-in.svg"
+    },
+    {
+        "id": "76ca99b844535cc0",
+        "type": "template",
+        "z": "8163cb557f9beb60",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "/output/pwm/channel/value/{ \"channel\": \"{{env.Channel}}\", \"value\": {{payload}} }",
+        "output": "str",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c855370408faa92",
+        "type": "subflow:8163cb557f9beb60",
+        "z": "38524843d73788ed",
+        "name": "",
+        "x": 660,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    }
+]

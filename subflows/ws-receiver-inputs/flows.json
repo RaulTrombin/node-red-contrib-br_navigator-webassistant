@@ -1,0 +1,515 @@
+[
+    {
+        "id": "4efd70ced22364d9",
+        "type": "subflow",
+        "name": "WS Receiver - Inputs",
+        "info": "",
+        "category": "BlueRobotics-Navigator-WebAssistant",
+        "in": [
+            {
+                "x": 40,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "cf616871a6dd0837"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1220,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "f5efbe72a2ad6c7b",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1220,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "f5efbe72a2ad6c7b",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 1220,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "f5efbe72a2ad6c7b",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 1030,
+                "y": 20,
+                "wires": [
+                    {
+                        "id": "f5b649205da85746",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1020,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "f5b649205da85746",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 1220,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "0419e0637e51691d",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1220,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "0419e0637e51691d",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 1220,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "0419e0637e51691d",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 1230,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "c2aeb4a41a6d0937",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1230,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "c2aeb4a41a6d0937",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 1230,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "c2aeb4a41a6d0937",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 1210,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "4f8ac12b6bb92d8a",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1210,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "4f8ac12b6bb92d8a",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 1210,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "4f8ac12b6bb92d8a",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 1210,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "4f8ac12b6bb92d8a",
+                        "port": 3
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "rate",
+                "type": "num",
+                "value": "1000",
+                "ui": {
+                    "icon": "font-awesome/fa-history",
+                    "label": {
+                        "en-US": "Sampling (ms)"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "num"
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {
+            "module": "node-red-contrib-navigator-webassistant",
+            "type": "ws-receiver-inputs",
+            "version": "0.0.0",
+            "author": "raulvtrombin@gmail.com",
+            "desc": "navigator blocks",
+            "keywords": "robotics,stem,rov",
+            "license": "MIT"
+        },
+        "color": "#C7E9C0",
+        "inputLabels": [
+            "WebSocket Broadcast Input"
+        ],
+        "outputLabels": [
+            "Acceleration - X",
+            "Acceleration - Y",
+            "Acceleration - Z",
+            "Temperature",
+            "Pressure",
+            "Gyroscope - X",
+            "Gyroscope - Y",
+            "Gyroscope - Z",
+            "Magnetometer - X",
+            "Magnetometer - Y",
+            "Magnetometer - Z",
+            "ADC - Ch1",
+            "ADC - Ch2",
+            "ADC - Ch3",
+            "ADC - Ch4"
+        ],
+        "icon": "font-awesome/fa-thermometer-empty"
+    },
+    {
+        "id": "389257e569961cc2",
+        "type": "json",
+        "z": "4efd70ced22364d9",
+        "name": "Convert",
+        "property": "payload",
+        "action": "obj",
+        "pretty": true,
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "57dad1d0998ead07"
+            ]
+        ]
+    },
+    {
+        "id": "57dad1d0998ead07",
+        "type": "switch",
+        "z": "4efd70ced22364d9",
+        "name": "Input",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "input",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "9e1778366c4d628a"
+            ]
+        ]
+    },
+    {
+        "id": "f5b649205da85746",
+        "type": "function",
+        "z": "4efd70ced22364d9",
+        "name": "Input Devices",
+        "func": "function extractField(data, fieldName) {\n    var extracted = null\n\n    data.input.forEach(Obj => {\n            // Check if the object has the specified field\n        if (Obj.type === fieldName) {\n                extracted = RED.util.cloneMessage(msg);\n                extracted.payload = Obj.value;\n                extracted.topic = fieldName\n                return;\n            }\n        });\n    \n    return extracted;\n}\n\nlet temperature = extractField(msg.payload, \"Temperature\");\nlet pressure = extractField(msg.payload, \"Pressure\");\nlet accelerometer = extractField(msg.payload, \"Accelerometer\");\nlet gyroscope = extractField(msg.payload, \"Gyroscope\");\nlet magnetometer = extractField(msg.payload, \"Magnetometer\");\nlet adc = extractField(msg.payload, \"Adc\");\n\nreturn [temperature, pressure, accelerometer, gyroscope, magnetometer, adc];",
+        "outputs": 6,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 140,
+        "wires": [
+            [],
+            [],
+            [
+                "f5efbe72a2ad6c7b"
+            ],
+            [
+                "0419e0637e51691d"
+            ],
+            [
+                "c2aeb4a41a6d0937"
+            ],
+            [
+                "4f8ac12b6bb92d8a"
+            ]
+        ],
+        "outputLabels": [
+            "Temperature",
+            "Pressure",
+            "Accelerometer",
+            "Gyroscope",
+            "Magnetometer",
+            "Adc"
+        ]
+    },
+    {
+        "id": "9e1778366c4d628a",
+        "type": "delay",
+        "z": "4efd70ced22364d9",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": true,
+        "outputs": 1,
+        "x": 530,
+        "y": 140,
+        "wires": [
+            [
+                "f5b649205da85746"
+            ]
+        ]
+    },
+    {
+        "id": "f8afead5210b3646",
+        "type": "comment",
+        "z": "4efd70ced22364d9",
+        "name": "Reduce the processing load",
+        "info": "",
+        "x": 540,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b8a846efb375d733",
+        "type": "comment",
+        "z": "4efd70ced22364d9",
+        "name": "Sensor readings",
+        "info": "",
+        "x": 740,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f5efbe72a2ad6c7b",
+        "type": "function",
+        "z": "4efd70ced22364d9",
+        "name": "3 Axes",
+        "func": "let msg_x = {}\nlet msg_y = {}\nlet msg_z = {}\n\nmsg_x.payload = msg.payload[0]\nmsg_x.topic = msg.topic + \"- X axis\"\n\nmsg_y.payload = msg.payload[1]\nmsg_y.topic = msg.topic + \"- Y axis\"\n\nmsg_z.payload = msg.payload[2]\nmsg_z.topic = msg.topic + \"- Z axis\"\n\nreturn [msg_x, msg_y, msg_z];",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 140,
+        "wires": [
+            [],
+            [],
+            []
+        ],
+        "inputLabels": [
+            "Array"
+        ],
+        "outputLabels": [
+            "X",
+            "Y",
+            "Z"
+        ],
+        "icon": "font-awesome/fa-sitemap"
+    },
+    {
+        "id": "0419e0637e51691d",
+        "type": "function",
+        "z": "4efd70ced22364d9",
+        "name": "3 Axes",
+        "func": "let msg_x = {}\nlet msg_y = {}\nlet msg_z = {}\n\nmsg_x.payload = msg.payload[0]\nmsg_x.topic = msg.topic + \"- X axis\"\n\nmsg_y.payload = msg.payload[1]\nmsg_y.topic = msg.topic + \"- Y axis\"\n\nmsg_z.payload = msg.payload[2]\nmsg_z.topic = msg.topic + \"- Z axis\"\n\nreturn [msg_x, msg_y, msg_z];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 220,
+        "wires": [
+            [],
+            [],
+            []
+        ],
+        "inputLabels": [
+            "Array"
+        ],
+        "outputLabels": [
+            "X",
+            "Y",
+            "Z"
+        ],
+        "icon": "font-awesome/fa-sitemap"
+    },
+    {
+        "id": "c2aeb4a41a6d0937",
+        "type": "function",
+        "z": "4efd70ced22364d9",
+        "name": "3 Axes",
+        "func": "let msg_x = {}\nlet msg_y = {}\nlet msg_z = {}\n\nmsg_x.payload = msg.payload[0]\nmsg_x.topic = msg.topic + \"- X axis\"\n\nmsg_y.payload = msg.payload[1]\nmsg_y.topic = msg.topic + \"- Y axis\"\n\nmsg_z.payload = msg.payload[2]\nmsg_z.topic = msg.topic + \"- Z axis\"\n\nreturn [msg_x, msg_y, msg_z];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 300,
+        "wires": [
+            [],
+            [],
+            []
+        ],
+        "inputLabels": [
+            "Array"
+        ],
+        "outputLabels": [
+            "X",
+            "Y",
+            "Z"
+        ],
+        "icon": "font-awesome/fa-sitemap"
+    },
+    {
+        "id": "4f8ac12b6bb92d8a",
+        "type": "function",
+        "z": "4efd70ced22364d9",
+        "name": "4 Axes",
+        "func": "let msg_ch0 = {}\nlet msg_ch1 = {}\nlet msg_ch2 = {}\nlet msg_ch3 = {}\n\nmsg_ch0.payload = msg.payload[0]\nmsg_ch0.topic = msg.topic + \"- Ch 0\"\n\nmsg_ch1.payload = msg.payload[1]\nmsg_ch1.topic = msg.topic + \"- Ch 1\"\n\nmsg_ch2.payload = msg.payload[2]\nmsg_ch2.topic = msg.topic + \"- Ch 2\"\n\nmsg_ch3.payload = msg.payload[3]\nmsg_ch3.topic = msg.topic + \"- Ch 3\"\n\nreturn [msg_ch0, msg_ch1, msg_ch2, msg_ch3];",
+        "outputs": 4,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 380,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "inputLabels": [
+            "Array"
+        ],
+        "outputLabels": [
+            "Ch1",
+            "Ch2",
+            "Ch3",
+            "Ch4"
+        ],
+        "icon": "font-awesome/fa-sitemap"
+    },
+    {
+        "id": "cf616871a6dd0837",
+        "type": "change",
+        "z": "4efd70ced22364d9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "rate",
+                "pt": "msg",
+                "to": "rate",
+                "tot": "env",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "389257e569961cc2"
+            ]
+        ]
+    },
+    {
+        "id": "24a5381bd560b625",
+        "type": "subflow:4efd70ced22364d9",
+        "z": "38524843d73788ed",
+        "name": "",
+        "x": 700,
+        "y": 220,
+        "wires": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    }
+]
