@@ -14,3 +14,7 @@ Example
 You can create a dashboard and plot sensors data or control navigator hardware.
 
 ![example.gif](example.gif)
+
+How install the dashboard example.
+
+![install_example.gif](install_example.gif)
