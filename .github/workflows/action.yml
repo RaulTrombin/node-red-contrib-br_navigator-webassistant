@@ -1,0 +1,25 @@
+name: Release Node-RED node
+on:
+  release:
+    types: [created]
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          registry-url: https://registry.npmjs.org/
+      - run: |
+          npm install -g node-red-nodegen
+          ./make_nodes.sh
+          cat package.json | jq ".repository.type|=\"git\"|.repository.url|=\"https://github.com/$GITHUB_REPOSITORY.git\"" > tmp; mv tmp package.json
+          cat package.json | jq ".bugs.url|=\"https://github.com/$GITHUB_ACTOR\"" > tmp; mv tmp package.json
+          npm pack
+        #  npm publish
+        #env:
+        #  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: node-red-contrib-*.tgz
